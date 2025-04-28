@@ -1,0 +1,28 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-03
+  namespace: bootcamp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-03
+  template:
+    metadata:
+      labels:
+        app: lab-03
+    spec:
+      containers:
+      - name: lab-03
+        image: lab_03:v0.0.1
+        resources:
+          requests:
+            cpu: 20m
+            memory: 50Mi
+          limits:
+            cpu: 100m
+            memory: 200Mi
+        ports:
+        - containerPort: 5000

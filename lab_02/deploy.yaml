@@ -17,5 +17,8 @@ spec:
       containers:
       - name: lab-02
         image: lab_02:v0.0.1
+        env:
+        - name: ENV
+          value: "DOCKER"
         ports:
         - containerPort: 5000
