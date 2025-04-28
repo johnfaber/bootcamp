@@ -1,0 +1,21 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-02
+  namespace: bootcamp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: lab-02
+  template:
+    metadata:
+      labels:
+        app: lab-02
+    spec:
+      containers:
+      - name: lab-02
+        image: lab_02:v0.0.1
+        ports:
+        - containerPort: 5000

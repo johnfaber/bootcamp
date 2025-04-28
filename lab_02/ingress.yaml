@@ -1,0 +1,21 @@
+# ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: labs-bootcamp
+  namespace: bootcamp
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: bootcamp.local
+    http:
+      paths:
+      - path: /lab02(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: lab-02
+            port:
+              number: 5000
