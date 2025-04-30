@@ -5,7 +5,7 @@ metadata:
   name: lab-03
   namespace: bootcamp
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: lab-03
@@ -19,7 +19,7 @@ spec:
         image: lab_03:v0.0.1
         resources:
           requests:
-            cpu: 20m
+            cpu: 10m
             memory: 50Mi
           limits:
             cpu: 100m

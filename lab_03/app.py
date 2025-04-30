@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import threading
 import time
+import os
 
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def consume_cpu():
         if seconds <= 0:
             return jsonify({"error": "El tiempo debe ser mayor que 0"}), 400
         handle_request(seconds)
-        return jsonify({"message": f"Hilo lanzado para consumir CPU {seconds} segundos."}), 200
+        return jsonify({"message": f"Hilo lanzado para consumir CPU {seconds} segundos en contenedor {os.environ.get('HOSTNAME')}."}), 200
     except (ValueError, TypeError):
         return jsonify({"error": "Solicitud inválida. Debe enviar 'seconds' como número."}), 400
 
