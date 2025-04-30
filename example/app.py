@@ -2,12 +2,14 @@
 
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 # Crear la app Flask
 app = Flask(__name__)
 
+# Asegurarse de que exista el directorio "data"
+os.makedirs('data', exist_ok=True)
 # Configurar base de datos SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"""sqlite:///{os.path.join(os.path.dirname(__file__), 'data', 'data.db')}"""
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Inicializar SQLAlchemy
