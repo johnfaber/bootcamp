@@ -19,6 +19,6 @@ spec:
         image: lab_02:v0.0.1
         env:
         - name: ENV
-          value: "DOCKER"
+          value: "CALIDAD"
         ports:
         - containerPort: 5000

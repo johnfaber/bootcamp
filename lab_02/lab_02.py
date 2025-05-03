@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 import socket
 import os
-import time
 # Crear la app Flask
 app = Flask(__name__)
 
@@ -11,7 +10,7 @@ def index():
 
 @app.route('/uname')
 def uname():
-    time.sleep(2)
+    
     return {"hostname": socket.gethostname(),
             "ip": socket.gethostbyname(socket.gethostname()),
             "env": os.environ.get('ENV')}

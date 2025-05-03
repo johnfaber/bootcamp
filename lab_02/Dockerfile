@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY reqs.txt reqs.txt
 
+ENV ENV=lab_02
+
 RUN pip3 install --no-cache-dir -r reqs.txt
 
 COPY lab_02.py app.py
